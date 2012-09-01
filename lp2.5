@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+#get number and string from user input; remove newline from number 
+print "Gimme a number\n";
+$int1=<STDIN>;
+chomp $int1;
+print "Now gimme some words\n";
+$str1=<STDIN>;
+
+#give the user a heads-up, wait a sec, then print $str1 $int1 times
+
+print "Ta-da! Gonna print your words $int1 times.\n";
+
+sleep 1;
+
+print $str1 x $int1;

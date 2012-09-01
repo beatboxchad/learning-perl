@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+#get two numbers from user input; remove newlines from both
+print "Please supply number to multiply.\n";
+$int1=<STDIN>;
+chomp $int1;
+print "... and one more.\n";
+$int2=<STDIN>;
+chomp $int2;
+#multiply them
+
+$product=$int1*$int2;
+print "$int1 X $int2 = $product\n"

@@ -1,0 +1,3 @@
+#!/usr/bin/perl
+$string="Hello, world! This shit's the shit, for real.\x{2744} \n";
+print $string . 'awesome' x 5e7;

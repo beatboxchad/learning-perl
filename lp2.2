@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+#define the numbers we're working with
+$pi=3.14159265359;
+print "Enter the radius of the circle you want the circomference of.\n";
+$radius=<STDIN>;
+chomp $radius;			#gets rid of obnoxious newline
+$diameter=2 * $radius;
+
+#do some math
+$circomf=$pi*$diameter;
+
+print "The circomference of a circle with radius $radius is $circomf\n";

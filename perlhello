@@ -1,0 +1,2 @@
+#!/usr/bin/perl
+print "Hello, world! This shit's the shit, for real.\x{2744} \n" x 3e5;

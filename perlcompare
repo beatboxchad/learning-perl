@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+$string = <STDIN>;
+if ($string gt 'fred') {
+    print "'$string comes after fred' in sorted order.\n";
+} else {
+    print "'$string' does not come after 'fred'.\n";
+    print "Maybe it's the same string, in fact.\n";
+}
