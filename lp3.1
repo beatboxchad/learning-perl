@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+print "Gimme some words. Press CTRL+D when you're done.\n";
+
+
+@inputs=<STDIN>;
+
+print "Here's what you typed, but in reverse order: \n \n \n";
+sleep .2;
+@inputs=reverse(@inputs);
+print @inputs;
+

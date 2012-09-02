@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+@names = qw (Chad Jason Gerald Sarah Fox Magdelena Harriet Suzy Fred Prince);
+
+print "Gimme a series of numbers between 0 and 9. Press CTRL+D when you're done.\n";
+
+
+@inputs=<STDIN>;
+chomp @inputs;
+
+
+print "Those numbers each corresond to a name. Here's the names: \n \n \n";
+sleep .2;
+
+foreach $input (@inputs) {
+	if ($input < 10){
+	    print "$input: $names[$input]\n";
+	} else {
+	    print "$input: Follow instructions, jackass!\n";
+	}
+}

@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+@names = qw (Chad Jason Gerald Sarah Fox Magdelena Harriet Suzy Fred Prince);
+
+print "Gimme a series of numbers between 1 and 10. Press CTRL+D when you're done.\n";
+
+@inputs=<STDIN>;
+
+#@inputs= qw (2 4 3 599 4 30 9 8 5 5443 4 5 3 2); # for testing
+chomp @inputs;
+
+while (my($index, $value) = each @inputs){
+	if ($value > 10) {
+		($errs[$#errs+1]) = splice @inputs, $index, 1;
+}
+}
+
+
+print "\nThose numbers each corresond to a name. Here are the names: \n \n \n";
+
+
+
+
+foreach $err (@errs) {
+	print "$err is out of specified range!!\n";
+}
+
+print "\n";
+
+foreach $input (@inputs) {
+	print "$input: @names[$input - 1]\n";
+}
