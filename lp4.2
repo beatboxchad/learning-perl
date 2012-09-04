@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+use strict;
+
+# This is the second exercise from chapter 4 of O'Reilly's Learning Perl.
+# Completed on September 2nd, 2012
+
+# Using the subroutine from the previous problem, make a program to 
+# calculate the sum of the numbers from 1 to 1,000.
+
+# This one was a bit easier. I just re-used the subroutine and threw a
+# couple lines down at the bottom. 
+
+sub total {
+	my $sum = 0;
+	foreach $_ (@_) {
+		my($number) = ($_);
+		$sum += $number;}
+	return $sum
+}
+
+		
+my @pile_o_numbas = (1..1000);
+my $pile_o_numbas_total = total(@pile_o_numbas);
+print "The total of every number from 1 to 1000 is $pile_o_numbas_total.\n";
