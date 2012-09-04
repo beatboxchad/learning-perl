@@ -1,5 +1,6 @@
-#!/usr/bin/perl
+#!/usr/bin/perl 
 use strict;
+use warnings;
 
 # This is the third exercise from chapter 4 of O'Reilly's Learning Perl.
 # Completed on September 2nd, 2012
@@ -10,6 +11,11 @@ use strict;
 # dividing the total by the number of items.) Try your subroutine in this 
 # test program.
 
+# Okay.. I'm pretty shamefaced about how long this took me, especially
+# since it took me that long because I failed to heed the hint in the 
+# above challenge. Bork. I'll blame the mild fever, or something. Lesson
+# learned - PAY ATTENTION.
+
 sub total {
 	my $sum = 0;
 	foreach $_ (@_) {
@@ -18,15 +24,31 @@ sub total {
 	return $sum
 }
 
-sub above_average {
-	my $sum = &total @_;
+sub mean {
+	my $sum = &total (@_);
 	my $number_of_elements =($#_ + 1);
+#	print "$number_of_elements\n"; 	# for debugging
 	my $mean = $sum / $number_of_elements;
-	my @above_average_numbers
-	foreach ($_ (@_)) {
-		if ($_ > $mean) {
-			push @above_average_numbers, $_;}
-}}
+#	print "$mean\n";		# for debugging
+	return $mean;
+}
+
+
+
+sub above_average {
+	my $mean = &mean; 
+	my @above_average;
+	foreach $_ (@_) { 
+		if ($_ > $mean) { 
+			$above_average[$#above_average + 1] = $_;
+# For awhile, I had "return @above_average" here, in the if loop, and I kept
+# wondering why the hell I was only getting the result of first iteration 
+# of the foreach loop. Sigh.
+		}
+	}	
+return @above_average;
+}
+
 	
 #The test program:
 
