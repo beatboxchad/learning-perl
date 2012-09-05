@@ -1,0 +1,48 @@
+#!/usr/bin/perl 
+use strict;
+use warnings;
+use feature 'state';
+
+# This is the fourth exercise from chapter 4 of O'Reilly's Learning Perl.
+# Completed on September 4th, 2012
+
+# Write a subroutine named greet that welcomes the person you name by telling
+# them the name of the last person it greeted:
+#
+#	greet( "Fred" );
+#	greet( "Barney" );
+#
+# This sequence of statements should print:
+#
+#	Hi Fred! You are the first one here!
+#	Hi Barney! Fred is also here!
+
+# I'm gonna slow down and take my time from here on out. I've forgotten small
+# syntactical details and cost myself frustrating time. Typical newbie
+# programmer mistake. From now on I will both be taking notes as I read,
+# and writing pseudo-code before I start. I may push both to github, but
+# probably I'll just include relevant details on what I was thinking 
+# in comments.
+
+my @name = <STDIN>;
+chomp @name;
+
+sub greet {
+	my @lastgreeted = shift @_;
+	print "Hi $lastgreeted[-1]! You are the first one here!\n";
+
+	foreach (@_) {
+		my $n= shift @_;
+		push @lastgreeted, $n;
+		print "Hi $lastgreeted[-1]! $lastgreeted[-2] is also here!\n";}
+	my $n = shift @_;
+	push @lastgreeted, $n;
+	print "Hi $lastgreeted[-1]! $lastgreeted[-2] is also here!\n";
+}
+
+&greet (@name);
+
+# This program seems to fail with repeated names. I will research and
+# debug this later... it looks kinda messy, and I can't help but think
+# there's a more elegant way to write this function, but I'm sure it'll
+# come to me in a flash of insight as I learn more.
