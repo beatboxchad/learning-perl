@@ -1,0 +1,64 @@
+#!/usr/bin/perl 
+use strict;
+use warnings;
+use feature 'state';
+
+# This is the fourth exercise from chapter 4 of O'Reilly's Learning Perl.
+# Completed on September 4th, 2012
+# Revised September 11th, 2012 (v .01)
+
+# Write a subroutine named greet that welcomes the person you name by telling
+# them the name of the last person it greeted:
+#
+#	greet( "Fred" );
+#	greet( "Barney" );
+#
+# This sequence of statements should print:
+#
+#	Hi Fred! You are the first one here!
+#	Hi Barney! Fred is also here!
+
+
+my $name; 
+my @here;
+
+## First version of &greet. It didn't work properly, and was part of
+## a clumsy program, greeting the whole array at once instead of the 
+## interactive way I have it now. Its biggest problem was that it
+## would fail to "greet" the last name in the list if the list con-
+## tained duplicate names.
+
+#sub greet {
+#	my @lastgreeted = shift @_;
+#	print "Hi $lastgreeted[-1]! You are the first one here!\n";
+#
+#	foreach (@_) {
+#		my $n= shift @_;
+#		push @lastgreeted, $n;
+#		print "Hi $lastgreeted[-1]! $lastgreeted[-2] is also here!\n";}
+#	my $n = shift @_;
+
+#	print "Hi $lastgreeted[-1]! $lastgreeted[-2] is also here!\n";
+#}
+
+sub greet {
+	if (@here+0 == 0) {
+		push @here, @_;
+		print "\n\tHi $name! You are the first one here!\n";
+	} else {
+		print "\n\tHi $name! $here[-1] is also here!\n";
+		push @here, @_;
+	}
+}
+print "\tHi! I'm the greeter program written in Perl! Who are you?\n\n";
+
+while (chomp($name=<STDIN>)) {
+
+	if ($name ne "") {		#When user just hits enter (causing empty string after chomp), exit.
+		&greet ("$name");
+		print "\n\tGreeter program here. Who are you?\n\n";
+	} else {
+		print "\n\tNobody there... I've outlived my usefulness. Goodbye, cruel world.\n";
+		exit;
+	}
+}

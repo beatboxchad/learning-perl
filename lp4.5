@@ -1,0 +1,50 @@
+#!/usr/bin/perl 
+use strict;
+use warnings;
+use feature 'state';
+
+# This is the fifth exercise from chapter 4 of O'Reilly's Learning Perl.
+# Completed on September 11th, 2012
+
+# Modify the previous program to tell each new person the names of all 
+# the people it has previously greeted:
+#
+#	greet( "Fred" );
+#	greet( "Barney" );
+#	greet( "Wilma: );
+#	greet( "Betty" );
+#
+# This sequence of statements should print:
+#
+#	Hi Fred! You are the first one here!
+#	Hi Barney! I've seen: Fred
+#	Hi Wilma! I've seen: Fred Barney
+#	Hi Betty! I've seen: Fred Barney Wilma
+
+## This was a very simple change from the previous program. Took me two seconds.
+
+my $name; 
+my @here;
+
+
+sub greet {
+	if (@here+0 == 0) {
+		push @here, @_;
+		print "\n\tHi $name! You are the first one here!\n";
+	} else {
+		print "\n\tHi $name! I've seen: @here.\n";
+		push @here, @_;
+	}
+}
+print "\tHi! I'm the greeter program written in Perl! Who are you?\n\n";
+
+while (chomp($name=<STDIN>)) {
+
+	if ($name ne "") {		#When user just hits enter, exit.
+		&greet ("$name");
+		print "\n\tGreeter program here. Who are you?\n\n";
+	} else {
+		print "\n\tNobody there... I've outlived my usefulness. Goodbye, cruel world.\n";
+		exit;
+	}
+}

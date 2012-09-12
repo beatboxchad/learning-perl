@@ -41,6 +41,7 @@ sub above_average {
 	foreach $_ (@_) { 
 		if ($_ > $mean) { 
 			$above_average[$#above_average + 1] = $_;
+
 # For awhile, I had "return @above_average" here, in the if loop, and I kept
 # wondering why the hell I was only getting the result of first iteration 
 # of the foreach loop. Sigh.

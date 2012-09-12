@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my @names = qw (Chad Jason Gerald Sarah Fox Magdelena Harriet Suzy Fred Prince);
+
+print "Gimme a series of numbers between 1 and 10. Press CTRL+D when you're done.\n";
+my @inputs;
+#chomp (@inputs=<STDIN>);
+my @errs;
+
+chomp (@inputs= qw (2 1 4 3 1 599 4 30 9 8 5 5443 10 9 10 20 8 4 5 3 2)); # for testing
+
+#while (my($index, $value) = each @inputs){
+#	if ($value > 10) {
+#		($errs[$#errs+1]) = splice @inputs, $index, 1;
+#}
+#}
+foreach (0..$#inputs) {
+	my $n = splice @inputs, $_, 1;
+	if ($n > 10) {
+		push @errs, $n;
+	} else {
+	splice @inputs, $_, 0, $n;
+	}
+}
+
+print "\nThose numbers each corresond to a name. Here are the names: \n \n \n";
+
+
+
+foreach (@errs) {
+	print "$_ is out of specified range!!\n";
+}
+
+print "\n";
+
+foreach (@inputs) {
+	print "$names[$_ - 1] has number $_.\n";
+}
