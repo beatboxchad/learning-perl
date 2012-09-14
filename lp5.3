@@ -1,0 +1,55 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the third exercise from chapter 5 of O'Reilly's Learning Perl.
+# Completed on September 12th, 2012
+
+# Modify the previous program to let the user choose the column width,  
+# so that entering 30, hello, good-bye (on separate lines) would put
+# the strings at the 30th column. (Hint: see "Interpolation of Scalar
+# Variables into Strings" on page 32 in Chapter 2, about controling
+# variable interpolation.) For extra credit, make the ruler line longer
+# when the selected width is larger.
+
+
+## 
+
+print "\t\tGimme a list of words, typing Enter after each. A blank word followed by Enter means you're done.\n";
+
+my @words;
+my $word;
+my $column;
+#sub ruler {
+##gonna make a subroutine.
+##It's gonna return $r, where $r is ($column / 10 + 1).
+##Actually, might not make a subroutine out of this. Only need it once.
+
+while (chomp($word=<STDIN>)) { #Might make a sub out of this thing.
+	if ($word ne "") {
+		push @words, $word;
+		print "\n\t\tCool. Any more?\n";
+	} else {
+	last;
+	}
+}
+
+print "\n\t\tNow tell me which column to right-justify them to. 30? 3? 54? Whatever.\n";
+while (<STDIN>) {
+	if (/\n/) {  #wee I skipped ahead to regexes, to make it take "enter" instead of ctrl-D.
+	$column = $_;
+	last;
+	}
+}
+
+my $r=($column / 10 + 1);
+
+
+print "\n" . ("1234567890" x $r) . "\n";
+
+foreach (@words) {
+	printf ("%" .(0 + $column) ."s" ." \n", "$_");
+}
