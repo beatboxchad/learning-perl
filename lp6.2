@@ -1,0 +1,50 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the second exercise from chapter 6 of O'Reilly's Learning Perl.
+# Completed on September 13th, 2012
+
+# Write a program that reads a series of words (with one word per line†) until
+# end-of-input, then prints a summary of how many times each word was seen.
+# (Hint: remember that when an undefined value is used as if it were a number,
+# Perl automatically converts it to 0. It may help to look back at the
+# earlier exercise that kept a running total.) So, if the input words were
+# fred, barney, fred, dino, wilma, fred (all on separate lines), the output
+# should tell us that fred was seen 3 times. For extra credit, sort the summary
+# words in code point order in the output.
+
+my @words; 
+
+print "Type a list of words. When you're done, just hit enter.\n";
+
+while (<STDIN>) {
+	push @words, $_ unless ($_ eq "\n");
+	if ($_ eq "\n") {
+		last;
+	}
+}
+chomp @words;
+my %wordcount;
+	
+foreach my $word (@words) {
+	if (exists $wordcount{$word}) {
+		$wordcount{$word} += 1;
+	} else {
+		$wordcount{$word} = 1;
+	}
+}
+
+
+my @sortedwords = sort keys %wordcount;
+
+foreach (@sortedwords) {
+	if ($wordcount{$_} == 1) {
+		print "I saw $_ $wordcount{$_} time.\n";
+		} else {
+		print "I saw $_ $wordcount{$_} times.\n";
+		}
+}
