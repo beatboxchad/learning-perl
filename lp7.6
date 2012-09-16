@@ -1,0 +1,21 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the sixth exercise from chapter 7 of O'Reilly's Learning Perl.
+# Completed on September 16th, 2012
+
+# Extra credit exercise: write a program that prints out any input line that
+# mentions both wilma and fred.
+
+my $flinstones = 'flintstones';
+open 'flintstones', "<", "flintstones.txt";
+
+while (<$flinstones>) {
+	if (/(fred).*(wilma)|(wilma).*(fred)/) {
+	print "$_\n\n";
+	}
+}

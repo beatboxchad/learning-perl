@@ -1,0 +1,22 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the fourth exercise from chapter 7 of O'Reilly's Learning Perl.
+# Completed on September 16th, 2012
+
+
+# Make a program that prints each line that has a word that is capitalized
+# but not ALL capitalized. Does it match Fred but neither fred nor FRED?
+
+my $flinstones = 'flintstones';
+open 'flintstones', "<", "flintstones.txt";
+
+while (<$flinstones>) {
+	if (/[A-Z][a-z]+|[a-z]+[A-Z]+[a-z]*/) {
+	print "$_\n\n";
+	}
+}

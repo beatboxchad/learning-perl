@@ -1,0 +1,29 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the fifth exercise from chapter 7 of O'Reilly's Learning Perl.
+# Completed on September 16th, 2012
+
+
+# Make a program that prints each line that has a two of the same
+# nonwhitespace characters next to each other. It should match lines that
+# contain words such as Mississippi, Bamm-Bamm, or llama.
+
+# This matched a lot of lines containing wiki markup brackets and such, as
+# I used source code from the Flintstones Wikipedia page to create this text
+# file. Actually, come to think of it, I might just copy/paste the body of
+# the finished article into flinstones.txt so it's less funky.  Anyway, the
+# code does what the challenge asked, so I'm moving on for now.
+
+my $flinstones = 'flintstones';
+open 'flintstones', "<", "flintstones.txt";
+
+while (<$flinstones>) {
+	if (/(\P{Space})\1/) {
+	print "$_\n\n";
+	}
+}

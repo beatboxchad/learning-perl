@@ -1,0 +1,23 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the second exercise from chapter 7 of O'Reilly's Learning Perl.
+# Completed on September 15th, 2012
+
+
+# Modify the previous program to allow Fred to match as well. Does it match
+# now if your input string is Fred, frederick, or Alfred? (Add lines with
+# these names to the text file.)
+
+my $flinstones = 'flintstones';
+open 'flintstones', "<", "flintstones.txt";
+
+while (<$flinstones>) {
+	if (/( fred.?)|( Fred.?)/) {
+	print "$_\n\n";
+	}
+}
