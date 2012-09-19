@@ -1,0 +1,24 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the first exercise from chapter 8 of O'Reilly's Learning Perl.
+# Completed on September 19th, 2012
+
+# Using the pattern test program, make a pattern to match the string match.
+# Try the program with the input string beforematchafter. Does the output
+# show the three parts of the match in the right order?
+
+
+while (<>) {
+    chomp;
+    if (/match/) {
+	print "Matched: |$`<$&>$'|\n";
+    } else {
+	print "No match.\n";
+    }
+
+}

@@ -1,0 +1,27 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the third exercise from chapter 8 of O'Reilly's Learning Perl.
+# Completed on September 19th, 2012
+
+# Modify the program from the previous exercise so that the word ending with
+# the letter a is captured into $1. Update the code to display that
+# variable’s contents in single quotes, something like $1 contains 'Wilma'.
+
+
+
+while (<>) {
+    chomp;
+    if (/(\b[\w]*a\b)/) {
+	print "Matched: |$`<$&>$'|\n";
+	print "Also \$1 contains \'$1\'\n";
+    } else {
+	print "No match.\n";
+    }
+
+}
+

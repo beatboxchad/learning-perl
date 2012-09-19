@@ -1,0 +1,26 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the fourth exercise from chapter 8 of O'Reilly's Learning Perl.
+# Completed on September 19th, 2012
+
+# Modify the program from the previous exercise to use named captures
+# instead of relying on $1. Update the code to display that label name,
+# something like 'word' contains 'Wilma
+
+
+while (<>) {
+    chomp;
+    if (/(?<match>\b[\w]*a\b)/) {
+	print "Matched: |$`<$&>$'|\n";
+	print "Also \'match\' contains \'$+{match}\'\n";
+    } else {
+	print "No match.\n";
+    }
+
+}
+

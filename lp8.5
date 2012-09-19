@@ -1,0 +1,29 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the fifth exercise from chapter 8 of O'Reilly's Learning Perl.
+# Completed on September 19th, 2012
+
+# Extra credit exercise: modify the program from the previous exercise so
+# that immediately following the word ending in a it will also capture
+# up-to-five characters (if there are that many characters, of course) in a
+# separate capture variable. Update the code to display both capture
+# variables. For example, if the input string says I saw Wilma yesterday,
+# the up-to-five characters are “yest”. If the input is I, Wilma!, the extra
+# capture should have just one character. Does your pattern still match just
+# plain wilma?
+
+while (<>) {
+    chomp;
+    if (/(\b[\w]*a\b)(.{0,5})/) {
+	print "Matched: <$1> and then these five-or-fewer characters: <$2>\n";
+    } else {
+	print "No match.\n";
+    }
+
+}
+

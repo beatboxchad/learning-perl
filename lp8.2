@@ -1,0 +1,25 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the second exercise from chapter 8 of O'Reilly's Learning Perl.
+# Completed on September 19th, 2012
+
+# Using the pattern test program, make a pattern that matches if any word
+# (in the \w sense of word) ends with the letter a. Does it match wilma but
+# not barney?  Does it match Mrs. Wilma Flintstone? What about wilma&fred?
+# Try it on the sample text file from the Exercises in Chapter 7 (and add
+# these test strings if they weren’t already in there).
+
+while (<>) {
+    chomp;
+    if (/\b[\w]*a\b/) {
+	print "Matched: |$`<$&>$'|\n";
+    } else {
+	print "No match.\n";
+    }
+
+}
