@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+Copyright (C) 2012 by Chad Cassady 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the second exercise from chapter 9 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+# Write a program that makes a modified copy of a text file. In the copy, every
+# string Fred (case-insensitive) should be replaced with Larry. (So, Manfred
+# Mann should become ManLarry Mann.) The input file name should be given on the
+# command line (don’t ask the user!), and the output filename should be the
+# corresponding file name ending with .out.
+
+
+$^I = ".bak";
+
+while (<>){
+	s/fred/larry/i;
+	print;
+}

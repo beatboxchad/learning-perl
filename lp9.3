@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+Copyright (C) 2012 by Chad Cassady
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the third exercise from chapter 9 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+# Modify the previous program to change every Fred to Wilma and every Wilma to
+# Fred. Now input like fred&wilma should look like Wilma&Fred in the output.
+
+$^I = ".bak";
+
+while (<>){
+	s/fred/thisuniquestringisunlikelytoexistinthefile/ig;
+	s/wilma/fred/ig;
+	s/thisuniquestringisunlikelytoexistinthefile/wilma/ig;
+	print;
+}
+
+# I probably missed something more obvious, but this is how I got it done.

@@ -1,0 +1,32 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the fourth exercise from chapter 9 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+# Extra extra credit exercise: modify the previous program so that it doesn’t
+# edit the files that already contain the copyright line. As a hint on that,
+# you might need to know that the name of the file being read by the diamond
+# operator is in $ARGV.
+
+# Here's an episode of me having the wrong idea:
+
+open FILE, $ARGV[0];
+my $litmus = join '', <FILE>;
+if ($litmus =~ /Copyright \(C\) 2012 by Chad Cassady/) {
+	die "File already contains copyright line\n";
+}
+close FILE;
+
+
+$^I = ".bak";
+
+while (<>){
+	s/#!\/usr\/bin\/perl/#!\/usr\/bin\/perl\nCopyright (C) 2012 by Chad Cassady/i;
+	print;
+}
+
