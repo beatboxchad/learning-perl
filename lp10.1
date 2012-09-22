@@ -1,0 +1,29 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the first exercise from chapter 10 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+# Make a program that will repeatedly ask the user to guess a secret number
+# from 1 to 100 until the user guesses the secret number. Your program should
+# pick the number at random by using the magical formula int(1 + rand 100).§
+# When the user guesses wrong, the program should respond, “Too high” or “Too
+# low.” If the user enters the word quit or exit, or if the user enters a blank
+# line, the program should quit. Of course, if the user guesses correctly, the
+# program should quit then as well!
+
+my $secret= int(1 + rand 100);
+print "Guess what number I'm thinking of?\n";
+#print "For debugging purposes, it's $secret.\n";
+
+while (<STDIN>){
+	print "Too high!\n" if ($_ > $secret);
+	print "Too low!\n" if ($_ < $secret);
+	last if ($_ == $secret);
+}
+
+print "That's right!\n";

@@ -1,0 +1,29 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+# I interviewed at Amazon a couple months ago when I first decided I'd start
+# trying to put my Linux skills to use in the job market. I did well on the
+# Linux portion of the interview, but floundered miserably when it came to
+# coding and SQL (because I hadn't messed with those at all). Subsequently, I
+# learned everything I would have had to know to answer those questions,
+# although I'm sure they would have been followed by more advanced ones.
+# Anyway, this program is an answer to the coding question I didn't know in
+# that interview. Self-explanatory:
+
+print "Give me the nth integer in a Fibonacci sequence, and I will give you its value.\n";
+
+my @fibs=(0..1);
+
+my $n=<STDIN>;
+chomp $n;
+
+while (@fibs < $n) {
+	push @fibs,($fibs[-1] + $fibs[-2]);
+}
+
+print "$fibs[-1]\n";
+
+# Nothing like a little personal validation. Not as good as a paycheck, but that'll come. :)
