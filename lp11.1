@@ -1,0 +1,25 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+use Module::CoreList;
+
+# This is the first exercise from chapter 11 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+# Install the Module::CoreList module from CPAN. Print a list of all of the
+# mod- ules that came with Perl 5.14. To build a hash whose keys are the names
+# of the modules that came with a given version of perl, use this line: 
+# 
+# my %modules = %{ $Module::CoreList::version{5.014} };
+
+my %modules = %{ $Module::CoreList::version{5.014} };
+
+my @keys= sort keys %modules;
+
+foreach (@keys){ 
+	$modules{$_} = $modules{$_} || 'Undefined Value';	
+	printf "%-50s%s\n", ($_,$modules{$_});
+}

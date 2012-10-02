@@ -1,0 +1,27 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the third exercise from chapter 10 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+# Modify the program from Exercise 3 in Chapter 6 (the environment lister) to
+# print (undefined value) for environment variables without a value. You can
+# set the new environment variables in the program. Ensure that your program
+# reports the right thing for variables with a false value. If you are using
+# Perl 5.10 or later, use the // operator. Otherwise, use the conditional
+# operator.
+
+
+
+my @envkeys = (sort keys %ENV);
+
+foreach (@envkeys) {
+	my $value=$ENV{$_} || '(Undefined Value)';;
+	printf "\n%-50s %s\n", ($_,$value);
+}
+
+# Just took one extra line.

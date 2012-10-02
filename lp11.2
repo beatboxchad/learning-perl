@@ -1,0 +1,56 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+use DateTime;
+
+# This is the second exercise from chapter 11 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+# Write a program using DateTime to compute the interval between now and a date
+# that you enter as the year, month, and day on the command line:
+# 
+# $ perl duration.pl 1960 9 30
+# 50 years, 8 months, and 20 days
+
+# I will stick to my naming convention rather than duration.pl. I am also just
+# gonna write another executable instead of a command-line script.
+
+print "Gimme a date in MM-DD-YYYY format\n";
+
+my @datefields;
+while (<STDIN>){
+	@datefields = (split /-/,$_);
+	last if /\n/;
+}
+
+chomp @datefields;
+
+my $now = DateTime->now;
+
+#print "$now\n";	#For debugging
+
+my $then = DateTime->new(
+	year	=> $datefields[-1],
+	month	=> $datefields[0],
+	day	=> $datefields[1],
+	);
+
+#print "$then\n";	#For debugging
+
+my $duration = $then->subtract_datetime($now);
+
+# The example code in the book didn't work (they created an array out of
+# $duration->in_units). I think maybe the function they used is deprecated, as
+# I didn't see in_units anywhere in the documentation for the DateTime module.
+# Anyway, I ended up reading said documentation and used this example instead.
+# This appears to delve into object-oriented programming which I don't quite
+# grok yet. I can see the syntax of how to use it, I just don't know WHY it
+# works. I'm sure it'll make sense with a little more goofing around. I've been
+# slacking on these exercises last few weeks while in favor of dissecting some
+# code from perlmonks, and I've seen a lot of it. Or I could just read the next
+# book... ADD can be a good way to learn though.
+
+print "That date is " . $duration->years . " years, " . $duration->months . " months, and " . $duration->days . " days from now.\n";
