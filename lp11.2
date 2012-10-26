@@ -7,7 +7,9 @@ use autodie;
 use DateTime;
 
 # This is the second exercise from chapter 11 of O'Reilly's Learning Perl.
-# Completed on September 21st, 2012
+# Completed on September 21st, 2012, updated on October 25th, 2012.
+
+# I've been away for awhile. Got a job as a sysadmin!!!
 
 # Write a program using DateTime to compute the interval between now and a date
 # that you enter as the year, month, and day on the command line:
@@ -18,27 +20,34 @@ use DateTime;
 # I will stick to my naming convention rather than duration.pl. I am also just
 # gonna write another executable instead of a command-line script.
 
-print "Gimme a date in MM-DD-YYYY format\n";
+my ($month, $day, $year);
 
-my @datefields;
-while (<STDIN>){
-	@datefields = (split /-/,$_);
-	last if /\n/;
+# This loop was suggested to me by Jacinta Richardson on the Seattle Perl User
+# Group mailing list. I had crossed my wires trying to use a while loop to get
+# a scalar value. Long story.
+
+if ( @ARGV == 3 ) {
+	($year, $month, $day) = @ARGV;
+}
+else {
+	print "Gimme a date in MM-DD-YYYY format\n";
+	my $input = <STDIN>;
+	chomp $input;
+	($month, $day, $year) = split /-/, $input;
 }
 
-chomp @datefields;
 
 my $now = DateTime->now;
 
-#print "$now\n";	#For debugging
+#print "$now\n";  #For debugging
 
 my $then = DateTime->new(
-	year	=> $datefields[-1],
-	month	=> $datefields[0],
-	day	=> $datefields[1],
-	);
+  year  => $year,
+  month  => $month,
+  day  => $day,
+  );
 
-#print "$then\n";	#For debugging
+#print "$then\n";  #For debugging
 
 my $duration = $then->subtract_datetime($now);
 
