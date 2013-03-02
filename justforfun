@@ -1,0 +1,15 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+# This is the fourth exercise from chapter 9 of O'Reilly's Learning Perl.
+# Completed on September 21st, 2012
+
+while (1) {
+	if (<STDIN> =~ /q/i) {
+		die "Ya hit q!\n"
+		}
+}

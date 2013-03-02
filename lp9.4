@@ -22,8 +22,8 @@ use autodie;
 $^I = ".bak";
 
 while (<>){
-	s/#!\/usr\/bin\/perl/#!\/usr\/bin\/perl\nCopyright (C) 2012 by Chad Cassady/i;
-	print;
+  s/#!\/usr\/bin\/perl/#!\/usr\/bin\/perl\nCopyright (C) 2012 by Chad Cassady/i;
+  print;
 }
 
 # There might be a less error-prone way of doing this, but I don't imagine the

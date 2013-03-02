@@ -15,10 +15,10 @@ use autodie;
 $^I = ".bak";
 
 while (<>){
-	s/fred/thisuniquestringisunlikelytoexistinthefile/ig;
-	s/wilma/fred/ig;
-	s/thisuniquestringisunlikelytoexistinthefile/wilma/ig;
-	print;
+  s/fred/thisuniquestringisunlikelytoexistinthefile/ig;
+  s/wilma/fred/ig;
+  s/thisuniquestringisunlikelytoexistinthefile/wilma/ig;
+  print;
 }
 
 # I probably missed something more obvious, but this is how I got it done.

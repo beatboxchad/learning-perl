@@ -10,8 +10,8 @@ print "Gimme a series of numbers between 1 and 10. Press CTRL+D when you're done
 chomp @inputs;
 
 while (my($index, $value) = each @inputs){
-	if ($value > 10) {
-		($errs[$#errs+1]) = splice @inputs, $index, 1;
+  if ($value > 10) {
+    ($errs[$#errs+1]) = splice @inputs, $index, 1;
 }
 }
 
@@ -22,11 +22,11 @@ print "\nThose numbers each corresond to a name. Here are the names: \n \n \n";
 
 
 foreach $err (@errs) {
-	print "$err is out of specified range!!\n";
+  print "$err is out of specified range!!\n";
 }
 
 print "\n";
 
 foreach $input (@inputs) {
-	print "$input: @names[$input - 1]\n";
+  print "$input: @names[$input - 1]\n";
 }

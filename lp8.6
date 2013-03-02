@@ -13,9 +13,9 @@ use autodie;
 # at the end of the output line so as to make the whitespace visible.
 
 while (<>) {
-	chomp;
-	if (/[\h]\Z/) {
-		print "\nThe line:\n\n <$_>\n\ncontained whitespace at its end.\n\n";
-	} 
-	
+  chomp;
+  if (/[\h]\Z/) {
+    print "\nThe line:\n\n <$_>\n\ncontained whitespace at its end.\n\n";
+  } 
+  
 }

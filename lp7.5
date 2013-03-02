@@ -23,7 +23,7 @@ my $flinstones = 'flintstones';
 open 'flintstones', "<", "flintstones.txt";
 
 while (<$flinstones>) {
-	if (/(\P{Space})\1/) {
-	print "$_\n\n";
-	}
+  if (/(\P{Space})\1/) {
+  print "$_\n\n";
+  }
 }

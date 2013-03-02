@@ -21,9 +21,9 @@ print "Guess what number I'm thinking of?\n";
 #print "For debugging purposes, it's $secret.\n";
 
 while (<STDIN>){
-	print "Too high!\n" if ($_ > $secret);
-	print "Too low!\n" if ($_ < $secret);
-	last if ($_ == $secret);
+  print "Too high!\n" if ($_ > $secret);
+  print "Too low!\n" if ($_ < $secret);
+  last if ($_ == $secret);
 }
 
 print "That's right!\n";

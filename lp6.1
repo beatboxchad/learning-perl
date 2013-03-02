@@ -13,10 +13,10 @@ use autodie;
 # spend so much time on the computer that you don’t know any actual people) 
 # use the following table:
 # 
-# 	input 	output
-# 	fred 	flintstone
-# 	barney 	rubble
-# 	wilma 	flintstone
+#   input   output
+#   fred   flintstone
+#   barney   rubble
+#   wilma   flintstone
 # 
 
 ## This is just an exercise, but I've added a little extra functionality to it. I'm a fan
@@ -26,37 +26,37 @@ use autodie;
 ## Despite this just being a proof-of-having-learnt-it exercise, I'm going to add to it
 ## for fun. My plans:
 ##
-## 	-make the name input case-insensitive
+##   -make the name input case-insensitive
 ##
-## 	-if the program doesn't have a name stored in the hash, ask to be "introduced"
-##	 and append the new name to the hash. (rather than just going, "I dunno")
+##   -if the program doesn't have a name stored in the hash, ask to be "introduced"
+##   and append the new name to the hash. (rather than just going, "I dunno")
 ##
-##	-later, make it keep the updated hash between invocations, so I can introduce
-##	 it to lots of people.
+##  -later, make it keep the updated hash between invocations, so I can introduce
+##   it to lots of people.
 ##
 ## I will make these additions... later. Pushing forward with the exercises for now.
 
-my $name="";	#declared this as "" to avoid error message about uninitialized value when I
-		#went to use it in the until loop so's to exit the program.
-		#I'm sure I'll learn how to do this more gracefully as time goes by,
-		#but I'm pretty happy with this for now. 
+my $name="";  #declared this as "" to avoid error message about uninitialized value when I
+    #went to use it in the until loop so's to exit the program.
+    #I'm sure I'll learn how to do this more gracefully as time goes by,
+    #but I'm pretty happy with this for now. 
 
 sub getname {
-	while (<STDIN>) {
-		if (/\n/) {
-		$name = $_;
-		chomp $name;
-		last;
-		}
-	}
+  while (<STDIN>) {
+    if (/\n/) {
+    $name = $_;
+    chomp $name;
+    last;
+    }
+  }
 }
 
 my %names = (
-	"chad" => "cassady",
-	"sarah" => "cassady",
-	"gerald" => "mcfred",
-	"ranjan" => "banerji",
-	"fred" => "flintstone",
+  "chad" => "cassady",
+  "sarah" => "cassady",
+  "gerald" => "mcfred",
+  "ranjan" => "banerji",
+  "fred" => "flintstone",
 );
 
 
@@ -68,9 +68,9 @@ print "\nGimme a name. If you type \"exit\" this program will end.\n\n";
 &getname;
 
 if (exists $names{"$name"}) {
-	print "I know $name $names{$name}.\n";
-	} else {
-	print "I don't know that person.\n" unless /exit/; 	#from some code in perldoc (specifically perlsyn), I deduced that I could start throwing 
-	}							#control words like 'unless' in loops other than at the top. It makes sense, and allows for 
-}								#more sophisticated things to happen. I'm really starting to have a blast...
+  print "I know $name $names{$name}.\n";
+  } else {
+  print "I don't know that person.\n" unless /exit/;   #from some code in perldoc (specifically perlsyn), I deduced that I could start throwing 
+  }              #control words like 'unless' in loops other than at the top. It makes sense, and allows for 
+}                #more sophisticated things to happen. I'm really starting to have a blast...
 

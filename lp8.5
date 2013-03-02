@@ -20,9 +20,9 @@ use autodie;
 while (<>) {
     chomp;
     if (/(\b[\w]*a\b)(.{0,5})/) {
-	print "Matched: <$1> and then these five-or-fewer characters: <$2>\n";
+  print "Matched: <$1> and then these five-or-fewer characters: <$2>\n";
     } else {
-	print "No match.\n";
+  print "No match.\n";
     }
 
 }

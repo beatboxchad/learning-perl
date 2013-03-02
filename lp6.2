@@ -22,29 +22,29 @@ my @words;
 print "Type a list of words. When you're done, just hit enter.\n";
 
 while (<STDIN>) {
-	push @words, $_ unless ($_ eq "\n");
-	if ($_ eq "\n") {
-		last;
-	}
+  push @words, $_ unless ($_ eq "\n");
+  if ($_ eq "\n") {
+    last;
+  }
 }
 chomp @words;
 my %wordcount;
-	
+  
 foreach my $word (@words) {
-	if (exists $wordcount{$word}) {
-		$wordcount{$word} += 1;
-	} else {
-		$wordcount{$word} = 1;
-	}
+  if (exists $wordcount{$word}) {
+    $wordcount{$word} += 1;
+  } else {
+    $wordcount{$word} = 1;
+  }
 }
 
 
 my @sortedwords = sort keys %wordcount;
 
 foreach (@sortedwords) {
-	if ($wordcount{$_} == 1) {
-		print "I saw $_ $wordcount{$_} time.\n";
-		} else {
-		print "I saw $_ $wordcount{$_} times.\n";
-		}
+  if ($wordcount{$_} == 1) {
+    print "I saw $_ $wordcount{$_} time.\n";
+    } else {
+    print "I saw $_ $wordcount{$_} times.\n";
+    }
 }

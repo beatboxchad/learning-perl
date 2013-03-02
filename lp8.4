@@ -16,10 +16,10 @@ use autodie;
 while (<>) {
     chomp;
     if (/(?<match>\b[\w]*a\b)/) {
-	print "Matched: |$`<$&>$'|\n";
-	print "Also \'match\' contains \'$+{match}\'\n";
+  print "Matched: |$`<$&>$'|\n";
+  print "Also \'match\' contains \'$+{match}\'\n";
     } else {
-	print "No match.\n";
+  print "No match.\n";
     }
 
 }

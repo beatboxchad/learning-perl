@@ -18,7 +18,7 @@ use autodie;
 open FILE, $ARGV[0];
 my $litmus = join '', <FILE>;
 if ($litmus =~ /Copyright \(C\) 2012 by Chad Cassady/) {
-	die "File already contains copyright line\n";
+  die "File already contains copyright line\n";
 }
 close FILE;
 
@@ -26,7 +26,7 @@ close FILE;
 $^I = ".bak";
 
 while (<>){
-	s/#!\/usr\/bin\/perl/#!\/usr\/bin\/perl\nCopyright (C) 2012 by Chad Cassady/i;
-	print;
+  s/#!\/usr\/bin\/perl/#!\/usr\/bin\/perl\nCopyright (C) 2012 by Chad Cassady/i;
+  print;
 }
 

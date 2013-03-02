@@ -14,9 +14,9 @@ use autodie;
 # not using a 19-character column by mistake! For example, entering hello,
 # good-bye should give output something like this:
 #
-#	123456789012345678901234567890123456789012345678901234567890
-#	               hello
-#		    good-bye
+#  123456789012345678901234567890123456789012345678901234567890
+#                 hello
+#        good-bye
 
 
 ## 
@@ -26,16 +26,16 @@ my @words;
 my $word;
 
 while (chomp($word=<STDIN>)) {
-	if ($word ne "") {
-		push @words, $word;
-		print "\n\t\tCool. Any more?\n";
-	} else {
-	last;
-	}
+  if ($word ne "") {
+    push @words, $word;
+    print "\n\t\tCool. Any more?\n";
+  } else {
+  last;
+  }
 }
 
 print "\n" . ("1234567890" x 5) . "\n";
 
 foreach (@words) {
-	printf ("%20s\n", "$_");
+  printf ("%20s\n", "$_");
 }

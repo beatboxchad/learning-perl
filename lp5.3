@@ -29,20 +29,20 @@ my $column;
 ##Actually, might not make a subroutine out of this. Only need it once.
 
 while (chomp($word=<STDIN>)) { #Might make a sub out of this thing.
-	if ($word ne "") {
-		push @words, $word;
-		print "\n\t\tCool. Any more?\n";
-	} else {
-	last;
-	}
+  if ($word ne "") {
+    push @words, $word;
+    print "\n\t\tCool. Any more?\n";
+  } else {
+  last;
+  }
 }
 
 print "\n\t\tNow tell me which column to right-justify them to. 30? 3? 54? Whatever.\n";
 while (<STDIN>) {
-	if (/\n/) {  #wee I skipped ahead to regexes, to make it take "enter" instead of ctrl-D.
-	$column = $_;
-	last;
-	}
+  if (/\n/) {  #wee I skipped ahead to regexes, to make it take "enter" instead of ctrl-D.
+  $column = $_;
+  last;
+  }
 }
 
 my $r=($column / 10 + 1);
@@ -51,5 +51,5 @@ my $r=($column / 10 + 1);
 print "\n" . ("1234567890" x $r) . "\n";
 
 foreach (@words) {
-	printf ("%" .(0 + $column) ."s" ." \n", "$_");
+  printf ("%" .(0 + $column) ."s" ." \n", "$_");
 }

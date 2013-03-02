@@ -20,8 +20,8 @@ use autodie;
 my @envkeys = (sort keys %ENV);
 
 foreach (@envkeys) {
-	my $value=$ENV{$_} || '(Undefined Value)';;
-	printf "\n%-50s %s\n", ($_,$value);
+  my $value=$ENV{$_} || '(Undefined Value)';;
+  printf "\n%-50s %s\n", ($_,$value);
 }
 
 # Just took one extra line.

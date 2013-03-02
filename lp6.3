@@ -17,7 +17,7 @@ use autodie;
 my @envkeys = (sort keys %ENV);
 
 foreach (@envkeys) {
-	printf "\n%-50s %s\n", ($_,$ENV{$_});
+  printf "\n%-50s %s\n", ($_,$ENV{$_});
 }
 
 #I'll mess with printf and get the long ENV values to format properly later.

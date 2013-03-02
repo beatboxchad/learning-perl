@@ -1,10 +1,8 @@
 Chad Cassady
-
 Linux System Administrator
-
 chad.cassady@gmail.com
-
 253-222-4264 cell
+github.com/beatboxchad
 
 Summary Of Qualifications
 
@@ -31,11 +29,11 @@ Summary Of Qualifications
 
 • Planning and troubleshooting SELinux file contexts and Booleans
 
-• Shell scripting with BASH and perl
+• Super-basic Shell scripting with BASH 
 
 • MYSQL shell
 
-• Perl
+• Perl scripting at a level suitable for automating system administration
 
 
 Experience:

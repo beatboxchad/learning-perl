@@ -15,20 +15,20 @@ chomp (@inputs=<STDIN>);
 ## First attempt at overcomplicating things:
 
 #while (my($index, $value) = each @inputs){
-#	if ($value > 10) {
-#		($errs[$#errs+1]) = splice @inputs, $index, 1;
+#  if ($value > 10) {
+#    ($errs[$#errs+1]) = splice @inputs, $index, 1;
 #}
 #}
 
 ## Second attempt at overcomplicating things:
 
 #foreach (0..$#inputs) {
-#	my $n = splice @inputs, $_, 1;
-#	if ($n > 10) {
-#		push @errs, $n;
-#	} else {
-#	splice @inputs, $_, 0, $n;
-#	}
+#  my $n = splice @inputs, $_, 1;
+#  if ($n > 10) {
+#    push @errs, $n;
+#  } else {
+#  splice @inputs, $_, 0, $n;
+#  }
 #}
 
 ## Coding is teaching me how to think:
@@ -38,17 +38,17 @@ print "\nThose numbers each corresond to a name. Here are the names: \n \n \n";
 print "\n";
 
 foreach (@inputs) {
-	if ($_ > 10) {
-	print "$_ is out of specified range!!\n";
-	}
+  if ($_ > 10) {
+  print "$_ is out of specified range!!\n";
+  }
 }
 
 print "\n \n";
 
 foreach (@inputs) {
-	if ($_ <= 10) {
-		print "$names[$_ - 1] has number $_.\n";
-	}
+  if ($_ <= 10) {
+    print "$names[$_ - 1] has number $_.\n";
+  }
 }
 
 ## Duh.

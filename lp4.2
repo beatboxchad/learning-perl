@@ -11,14 +11,14 @@ use strict;
 # couple lines down at the bottom. 
 
 sub total {
-	my $sum = 0;
-	foreach $_ (@_) {
-		my($number) = ($_);
-		$sum += $number;}
-	return $sum
+  my $sum = 0;
+  foreach $_ (@_) {
+    my($number) = ($_);
+    $sum += $number;}
+  return $sum
 }
 
-		
+    
 my @pile_o_numbas = (1..1000);
 my $pile_o_numbas_total = total(@pile_o_numbas);
 print "The total of every number from 1 to 1000 is $pile_o_numbas_total.\n";

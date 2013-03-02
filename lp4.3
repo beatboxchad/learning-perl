@@ -17,40 +17,40 @@ use warnings;
 # learned - PAY ATTENTION.
 
 sub total {
-	my $sum = 0;
-	foreach $_ (@_) {
-		my($number) = ($_);
-		$sum += $number;}
-	return $sum
+  my $sum = 0;
+  foreach $_ (@_) {
+    my($number) = ($_);
+    $sum += $number;}
+  return $sum
 }
 
 sub mean {
-	my $sum = &total (@_);
-	my $number_of_elements =($#_ + 1);
-#	print "$number_of_elements\n"; 	# for debugging
-	my $mean = $sum / $number_of_elements;
-#	print "$mean\n";		# for debugging
-	return $mean;
+  my $sum = &total (@_);
+  my $number_of_elements =($#_ + 1);
+#  print "$number_of_elements\n";   # for debugging
+  my $mean = $sum / $number_of_elements;
+#  print "$mean\n";    # for debugging
+  return $mean;
 }
 
 
 
 sub above_average {
-	my $mean = &mean; 
-	my @above_average;
-	foreach $_ (@_) { 
-		if ($_ > $mean) { 
-			$above_average[$#above_average + 1] = $_;
+  my $mean = &mean; 
+  my @above_average;
+  foreach $_ (@_) { 
+    if ($_ > $mean) { 
+      $above_average[$#above_average + 1] = $_;
 
 # For awhile, I had "return @above_average" here, in the if loop, and I kept
 # wondering why the hell I was only getting the result of first iteration 
 # of the foreach loop. Sigh.
-		}
-	}	
+    }
+  }  
 return @above_average;
 }
 
-	
+  
 #The test program:
 
 my @fred = above_average(1..10);

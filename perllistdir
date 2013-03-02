@@ -1,0 +1,17 @@
+#!/usr/bin/perl 
+use strict;
+use utf8;
+use warnings;
+use feature 'state';
+use autodie;
+
+my @matches;
+
+open FH , "ls -la|";
+
+while (<FH>) {
+	push @matches, $_ if /baz/; 
+}
+
+close FH;
+print "There are " . @matches + 0 . " files with 'baz' in their names\n";
